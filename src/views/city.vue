@@ -35,8 +35,12 @@
 
 	    this.init();
 	  },
+	  beforeDestroy(){
+	  	  this.$store.commit("changeTabbar",true);
+	  },
 	  methods: {
 	    init() {
+			this.$store.commit("changeTabbar",false);
 	     http({
 	       url: "/gateway?k=8927997",
 	       headers: { "X-Host": "mall.film-ticket.city.list" },

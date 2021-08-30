@@ -46,6 +46,7 @@ export default {
     }
   },
   mounted(){
+	  this.$store.commit("changeTabbar",false);
     let id= this.$route.params.id;
     //https://m.maizuo.com/gateway?filmId=5568&k=8027758
     this.$http({
@@ -55,6 +56,9 @@ export default {
       this.detailInfo = data.data.data.film;
 	  
     })
+  },
+  beforeDestroy(){
+  	  this.$store.commit("changeTabbar",true);
   }
 }
 </script>

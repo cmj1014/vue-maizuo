@@ -4,7 +4,7 @@
       <router-view/>
     </div>
     <!-- 电影网站数据建议使用猫眼和卖座  https://m.maoyan.com/ https://m.maizuo.com/-->
-      <TabBar></TabBar>
+      <TabBar v-show="$store.state.isTabbarShow"></TabBar>
   </div>
 </template>
 <script>
@@ -22,7 +22,8 @@ export default {
     return{
       
     }
-  }
+  },
+  
 };
 </script>
 <style lang="scss">
