@@ -32,6 +32,7 @@ html,body{
   padding:0;
   margin:0;
   font-size: 14px;
+      text-align: start;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

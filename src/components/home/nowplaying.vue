@@ -40,10 +40,10 @@ export default {
       //https://m.maizuo.com/gateway?cityId=310100&pageNum=1&pageSize=10&type=1&k=6990128
       this.$http({
         url:
-          "/gateway?cityId=310100&pageNum=1&pageSize=10&type=1&k=1095390",
+          `/gateway?cityId=${this.$store.state.cityId}&pageNum=1&pageSize=10&type=1&k=1095390`,
         headers: {
           "X-Client-Info":
-            '{"a":"3000","ch":"1002","v":"5.0.4","e":"16223891571754988061655041","bc":"310100"}',
+            '{"a":"3000","ch":"1002","v":"5.0.4","e":"16223891571754988061655041","bc":'+this.$store.state.cityId+'}',
           "X-Host": "mall.film-ticket.film.list",
         },
       }).then(({data}) => {

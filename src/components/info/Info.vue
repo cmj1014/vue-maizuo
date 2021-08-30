@@ -17,11 +17,11 @@
       <div v-if="dataList">
         <ul class="cinema">
           <li v-for="item in dataList" :key="item.cinemaId">
-            <div>
+            <div style="flex: 1;">
               <div>{{item.name}}</div>
               <div class="address">{{item.address}}</div>
             </div>
-            <div>{{item.lowPrice/100}}元</div>
+            <div style="width: 60px;">{{item.lowPrice/100}}元</div>
           </li>
         </ul>
       </div>
@@ -60,7 +60,7 @@ export default {
       // /gateway?cityId=310100&ticketFlag=1&k=9379490
       this.dataList = [];
       http({
-        url: "/gateway?cityId=310100&ticketFlag=1&k=9379490",
+        url: "/gateway?cityId="+this.$store.state.cityId+"&ticketFlag=1&k=9379490",
         headers: { "X-Host": "mall.film-ticket.cinema.list" },
       }).then((res) => {
         console.log(res.data);
@@ -89,6 +89,7 @@ export default {
   // height:calc(100% - 50px);
   // overflow: hidden;
   // position: relative;
+      text-align: start;
 }
 ul {
   li {
