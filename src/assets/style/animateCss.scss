@@ -1,0 +1,19 @@
+  .kerwin-enter-active {
+      animation: to100 .5s;
+    }
+
+    .kerwin-leave-active {
+      animation: to100 .5s reverse;
+    }
+
+    @keyframes to100 {
+      0% {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+    }

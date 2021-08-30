@@ -1,0 +1,39 @@
+.el-input {
+  width: 200px;
+}
+.el-input__inner {
+  height: 25px;
+  line-height: 25px;
+  font-size: 13px;
+}
+/* .el-button {
+  background-color: #3399ff;
+  font-size: 13px;
+  width: auto;
+  padding: 5px 10px;
+} */
+.el-dialog{
+  border-radius: 6px;
+}
+.el-dialog__header{
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  height: 30px;
+  color: #000;
+  background-color: #F2F2F2;
+  .el-dialog__title{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .el-dialog__headerbtn,
+  .el-dialog__close {
+    color: #000;
+    font-weight: bold;
+  }
+}
+.dialogInit{
+  color: #333;
+}
+.el-scrollbar__wrap{
+  overflow-x: hidden;
+}

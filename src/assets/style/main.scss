@@ -1,0 +1,148 @@
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex1 {
+  flex: 1;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.align-items{
+  display: flex;
+  align-items: flex-start;
+}
+
+.font-red{
+  color: red;
+}
+
+
+.mgT10 {
+  margin-top: 10px;
+}
+.mgT20 {
+  margin-top: 20px;
+}
+.mgT50{
+   margin-top: 50px;
+}
+.mgR10 {
+  margin-right: 10px;
+}
+.mgR20 {
+  margin-right: 20px;
+}
+.mgL10 {
+  margin-left: 10px;
+}
+.mgL20 {
+  margin-left: 20px;
+}
+.mgB10{
+  margin-bottom: 10px;
+}
+.mgB20 {
+  margin-bottom: 20px;
+}
+
+.w100{
+  width: 100%;
+}
+.w260{
+  width: 260px;
+}
+.h100{
+  height: 100%;
+}
+.tabBtn {
+  padding: 3px;
+  background-color: transparent;
+  color: #3399ff;
+}
+.selectTabBtn{
+  height: 44px;
+  background-color:#F2F2F2;
+  width: calc(100% - 36px);
+  padding: 0 16px;
+  border: 1px solid #BCBCBC;
+  border-radius: 6px;
+}
+
+.flag_img {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.opacity1 {
+  opacity: 1;
+}
+.opacity0 {
+  opacity: 0;
+}
+.opacity08 {
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+
+.headTitle {
+  font-weight: bold;
+  font-size: 18px;
+  color: #428bca;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1em;
+  background-color: rgba(197, 182, 182, 0.27);
+}
+
+/* 滑块颜色 */
+::-webkit-scrollbar-track {
+  //border-radius: 1em;
+  background-color: rgba(245, 239, 239, 0.21);
+}
+
+/* 滚动条的滑轨背景颜色 */
+
+::-webkit-scrollbar-button {
+  background-color: transparent;
+  height: 0px;
+  width: 0px
+}
+
+/* 滑轨两头的监听按钮颜色 */
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+  height: 0px;
+  width: 0px;
+}
