@@ -14,9 +14,9 @@
 		    <van-icon name="search" size="23" color="#999" />
 		  </template>
 		</van-nav-bar>
-      <div v-if="dataList">
+      <div v-if="$store.state.cinemaList">
         <ul class="cinema">
-          <li v-for="item in dataList" :key="item.cinemaId">
+          <li v-for="item in $store.state.cinemaList" :key="item.cinemaId">
             <div style="flex: 1;">
               <div>{{item.name}}</div>
               <div class="address">{{item.address}}</div>
@@ -59,18 +59,23 @@ export default {
     init() {
       // /gateway?cityId=310100&ticketFlag=1&k=9379490
       this.dataList = [];
-      http({
+	  if(this.$store.state.cinemaList.length ==0){
+		  this.$store.dispatch("getCinemaList",this.$store.state.cityId)
+	  }else{
+		  console.log("读取缓存")
+	  }
+      /*http({
         url: "/gateway?cityId="+this.$store.state.cityId+"&ticketFlag=1&k=9379490",
         headers: { "X-Host": "mall.film-ticket.cinema.list" },
       }).then((res) => {
         console.log(res.data);
         this.dataList = res.data.data.cinemas;
-       /*  this.$nextTick(()=>{
+         this.$nextTick(()=>{
            new BetterScroll(".userInfo",{
           scrollbar:{fabe:true}
         })
-        }) */
-      });
+        }) 
+      });*/
     },
 	onClickLeft(){
 		console.log("city");
