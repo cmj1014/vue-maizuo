@@ -3,8 +3,8 @@
     <div class="userInfo">
 		<van-nav-bar
 		  title="影院"
-		   @click-left="onClickLeft"
-		    @click-right="onClickRight"
+		  @click-left="onClickLeft"
+		  @click-right="onClickRight"
 		>
 		<template #left>
 		    <span class="mgR10">{{$store.state.cityName}}</span>
@@ -78,7 +78,7 @@ export default {
       });*/
     },
 	onClickLeft(){
-		console.log("city");
+    this.$store.commit("setCinemaList",[]);
 		this.$router.push("city");
 	},
 	onClickRight(){
