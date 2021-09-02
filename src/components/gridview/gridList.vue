@@ -26,6 +26,7 @@
           </div>
           <div class="flex1 btndiv">
             <van-button plain type="default" color="#7232dd" size="small">买票</van-button>
+       
           </div>
         </div>
       </van-cell>
@@ -89,7 +90,7 @@ export default {
     border-bottom: 1px solid #9e9e9e;
   }
   .componentDiv{
-    width: calc(100% - 90px);
+    width: calc(100% - 45px);
   }
   .poster {
     width: 66px;

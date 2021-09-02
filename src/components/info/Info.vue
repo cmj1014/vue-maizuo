@@ -82,7 +82,7 @@ export default {
 		this.$router.push("city");
 	},
 	onClickRight(){
-		
+		this.$router.push("/info/search");
 	}
   },
 };
