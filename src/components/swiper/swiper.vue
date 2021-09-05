@@ -62,5 +62,8 @@ export default {
 .swiper-container {
   width: 100%;
   height: 212px;
+  .van-swipe{
+	  text-align: center;
+  }
 }
 </style>

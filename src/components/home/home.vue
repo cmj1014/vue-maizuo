@@ -62,6 +62,7 @@ export default {
         color: #888;
         font-size: 14px;
         padding: 6px 10px;
+		text-align: center;
       }
     }
   }
