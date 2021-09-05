@@ -10,6 +10,7 @@
 <script>
 
 import TabBar from "@/components/tabBar.vue";
+import {mapState} from "vuex";
 export default {
   name: "home",
   components: {
