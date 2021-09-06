@@ -26,6 +26,7 @@
 <script>
 import Vue from 'vue';
 import { Search } from 'vant';
+import {mapActions, mapMutations, mapState } from 'vuex';
 Vue.use(Search);
 export default {
   name: "search",
@@ -36,20 +37,23 @@ export default {
     };
   },
   computed:{
+	  ...mapState("cityMod",["cityId"]),
+	  ...mapState("cinemaMod",["cinemaList"]),
     computedCinemaList(){
       if(this.value=="") return [];
-      return this.$store.state.cinemaList.filter(item=>item.name.toUpperCase().includes(this.value.toUpperCase())||item.address.toUpperCase().includes(this.value.toUpperCase()))
+      return this.cinemaList.filter(item=>item.name.toUpperCase().includes(this.value.toUpperCase())||item.address.toUpperCase().includes(this.value.toUpperCase()))
     }
   },
   mounted() {
-    if(this.$store.state.cinemaList.length ==0){
-		  this.$store.dispatch("getCinemaList",this.$store.state.cityId)
+    if(this.cinemaList.length ==0){
+		  // this.$store.dispatch("getCinemaList",this.cityId)
+		  this.getCinemaList(this.cityId);
 	  }else{
-		  console.log("读取缓存",this.$store.state.cinemaList)
-
+		  console.log("读取缓存",this.cinemaList)
 	  }
   },
   methods: {
+	  ...mapActions('cinemaMod', ['getCinemaList']),
    onSearch(){
 
    },

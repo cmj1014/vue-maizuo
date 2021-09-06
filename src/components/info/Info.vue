@@ -1,5 +1,5 @@
 <template>
-  <BetterScrollC>
+  <!-- <BetterScrollC> -->
     <div class="userInfo">
 		<van-nav-bar
 		  title="影院"
@@ -7,16 +7,16 @@
 		  @click-right="onClickRight"
 		>
 		<template #left>
-		    <span class="mgR10">{{$store.state.cityName}}</span>
+		    <span class="mgR10">{{cityName}}</span>
 			<van-icon name="arrow-down"  size="16" color="#999" />
 		  </template>
 		<template #right>
 		    <van-icon name="search" size="23" color="#999" />
 		  </template>
 		</van-nav-bar>
-      <div v-if="$store.state.cinemaList">
+      <div v-if="cinemaList">
         <ul class="cinema">
-          <li v-for="item in $store.state.cinemaList" :key="item.cinemaId">
+          <li v-for="item in cinemaList" :key="item.cinemaId">
             <div style="flex: 1;">
               <div>{{item.name}}</div>
               <div class="address">{{item.address}}</div>
@@ -26,16 +26,16 @@
         </ul>
       </div>
     </div>
-  </BetterScrollC>
+  <!-- </BetterScrollC> -->
 </template>
 
 <script>
 import http from "@/util/http.js";
-// import BetterScroll from "better-scroll";
+import BetterScroll from "better-scroll";
 import BetterScrollC from "@/components/tools/BetterScroll";
 import Vue from 'vue';
 import { NavBar ,Icon } from 'vant';
-
+import {mapActions, mapMutations, mapState } from 'vuex';
 Vue.use(NavBar).use(Icon);
 export default {
   name: "userInfo",
@@ -46,7 +46,12 @@ export default {
       height: 0,
     };
   },
+  computed:{
+	  ...mapState("cityMod",["cityId","cityName"]),
+	  ...mapState("cinemaMod",["cinemaList"]),
+  },
   mounted() {
+	this.$bus.emit('puthTo',"info"); 
     this.height = document.documentElement.clientHeight - 50 + "px";
     let userInfoObj = document.getElementsByClassName("userInfo");
     console.log("userInfoObj", userInfoObj);
@@ -55,12 +60,17 @@ export default {
     }
     this.init();
   },
+  
   methods: {
+	  ...mapMutations('cinemaMod', ['setCinemaList']),
+	  ...mapActions('cinemaMod', ['getCinemaList']),
+	  
     init() {
       // /gateway?cityId=310100&ticketFlag=1&k=9379490
       this.dataList = [];
-	  if(this.$store.state.cinemaList.length ==0){
-		  this.$store.dispatch("getCinemaList",this.$store.state.cityId)
+	  if(this.cinemaList.length ==0){
+
+		  this.getCinemaList(this.cityId);
 	  }else{
 		  console.log("读取缓存")
 	  }
@@ -78,7 +88,8 @@ export default {
       });*/
     },
 	onClickLeft(){
-    this.$store.commit("setCinemaList",[]);
+    // this.$store.commit("setCinemaList",[]);
+	this.setCinemaList([]);
 		this.$router.push("city");
 	},
 	onClickRight(){

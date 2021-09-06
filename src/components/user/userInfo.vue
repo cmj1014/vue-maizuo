@@ -11,6 +11,9 @@ export default {
   name: 'itemInfo',
   components:{
 
+  },
+  mounted(){
+	  this.$bus.emit('puthTo',"userInfo"); 
   }
 }
 </script>

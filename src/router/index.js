@@ -1,3 +1,4 @@
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/components/home/home.vue'
@@ -70,10 +71,15 @@ const router = new VueRouter({
 })
 //路由守卫
 router.beforeEach((to,from,next)=>{
-  const auth = ["/detail", "/money"];
+  const auth = ["/detail", "/money", "/info", "/home", "/userinfo"];
   if (auth.indexOf(to.fullPath)>-1){
     console.log("需要处理")
     //  next("/login");
+	/* console.log("to",to)
+	console.log("from",from)
+	let path = auth[to.fullPath]
+	this.$bus.emit('puthTo',to.name); */
+	next();
   }else{
     next();
   }

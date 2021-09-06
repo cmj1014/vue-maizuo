@@ -4,7 +4,7 @@
       <router-view/>
     </div>
     <!-- 电影网站数据建议使用猫眼和卖座  https://m.maoyan.com/ https://m.maizuo.com/-->
-      <TabBar v-show="$store.state.isTabbarShow"></TabBar>
+      <TabBar v-show="isTabbarShow"></TabBar>
   </div>
 </template>
 <script>
@@ -24,6 +24,10 @@ export default {
       
     }
   },
+  computed: {
+      // ...mapState('CinemaModule', ['cinemaList']),
+      ...mapState('tabbarMod', ['isTabbarShow']),
+    },
   
 };
 </script>

@@ -1,3 +1,4 @@
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -23,6 +24,9 @@ import './assets/style/element.scss' /*引入公共自定义样式*/
 import './assets/style/animateCss.scss' /*引入公共动画样式*/
 Vue.prototype.$axios = Axios
 Vue.prototype.$http = http
+
+import VueBus from 'vue-bus'
+Vue.use(VueBus)//中央控制总线
 
 Vue.use(vueSwiper)
 Vue.config.productionTip = false

@@ -38,7 +38,7 @@
 import {mixinsMain} from "@/assets/js/myMixin"
 import Vue from 'vue';
 import { List,Cell } from 'vant';
-
+import {mapState} from "vuex";
 Vue.use(List).use(Cell);
 export default {
   name: "gridList",
@@ -51,6 +51,9 @@ export default {
 		num:1,
 		total:0
 	};
+  },
+  computed:{
+	...mapState("cityMod",["cityId"])  
   },
   methods:{
     detail(item){
@@ -66,10 +69,10 @@ export default {
 		
 		this.$axios({
 		  url:
-		    "/maizuo/gateway?cityId=310100&pageNum="+this.num+"&pageSize=10&type=1&k=1095390",
+		    "/maizuo/gateway?cityId="+this.cityId+"&pageNum="+this.num+"&pageSize=10&type=1&k=1095390",
 		  headers: {
 		    "X-Client-Info":
-		      '{"a":"3000","ch":"1002","v":"5.0.4","e":"16223891571754988061655041","bc":"310100"}',
+		      '{"a":"3000","ch":"1002","v":"5.0.4","e":"16223891571754988061655041","bc":"'+this.cityId+'"}',
 		    "X-Host": "mall.film-ticket.film.list",
 		  },
 		}).then(({data}) => {

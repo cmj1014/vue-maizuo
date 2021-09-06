@@ -14,6 +14,7 @@
 	import Vue from 'vue';
 	import { IndexBar, IndexAnchor ,Toast} from 'vant';
 	import http from "@/util/http.js";
+	import {mapState,mapMutations} from "vuex";
 	Vue.use(IndexBar);
 	Vue.use(IndexAnchor);
 	export default {
@@ -36,11 +37,15 @@
 	    this.init();
 	  },
 	  beforeDestroy(){
-	  	  this.$store.commit("changeTabbar",true);
+	  	  // this.$store.commit("changeTabbar",true);
+		  this.changeTabbar(true)
 	  },
 	  methods: {
+		   ...mapMutations("cityMod",["changeCity"]),
+		   ...mapMutations("tabbarMod",["changeTabbar"]),
 	    init() {
-			this.$store.commit("changeTabbar",false);
+			// this.$store.commit("changeTabbar",false);
+			this.changeTabbar(false)
 	     http({
 	       url: "/gateway?k=8927997",
 	       headers: { "X-Host": "mall.film-ticket.city.list" },
@@ -73,7 +78,8 @@
 		},
 		handleChangePage(data){
 			console.log(data)
-			this.$store.commit("changeCity", data);
+			// this.$store.commit("changeCity", data);
+			this.changeCity(data)
 			this.$router.back();
 		}
 	  },

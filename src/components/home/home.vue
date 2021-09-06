@@ -29,6 +29,7 @@ export default {
   mounted() {
     // this.$router.push("/home/nowplaying")
     this.component = "nowplaying";
+	this.$bus.emit('puthTo',"home"); 
   },
   data() {
     return {
