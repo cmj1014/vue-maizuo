@@ -24,6 +24,10 @@ import './assets/style/element.scss' /*引入公共自定义样式*/
 import './assets/style/animateCss.scss' /*引入公共动画样式*/
 Vue.prototype.$axios = Axios
 Vue.prototype.$http = http
+import VueTouch from 'vue-touch'
+Vue.use(VueTouch, {
+  name: 'v-touch'
+})
 
 import VueBus from 'vue-bus'
 Vue.use(VueBus)//中央控制总线
